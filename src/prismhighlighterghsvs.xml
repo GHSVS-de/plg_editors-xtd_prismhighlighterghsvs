@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.9" type="plugin" group="editors-xtd" method="upgrade">
+	<name>PLG_EDITORS-XTD_PRISMHIGHLIGHTERGHSVS</name>
+	<author>G@HService Berlin Neukölln, Volkmar Volli Schlothauer</author>
+	<creationDate>2020-09-15</creationDate>
+	<copyright>(C) 2020, G@HService Berlin Neukölln, Volkmar Volli Schlothauer (ghsvs.de). All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt file</license>
+	<authorEmail></authorEmail>
+	<authorUrl>https://www.ghsvs.de</authorUrl>
+	<version>2020.09.16</version>
+	<description>PLG_EDITORS-XTD_PRISMHIGHLIGHTERGHSVS_XML_DESC</description>
+	<versionHistory>
+	   https://updates.ghsvs.de/changelog.php?file=plg_editors-xtd_prismhighlighterghsvs
+	</versionHistory>
+	
+	<updateservers><server type="extension" priority="1" name="PLG_EDITORS-XTD_PRISMHIGHLIGHTERGHSVS">https://raw.githubusercontent.com/GHSVS-de/upadateservers/master/plg_editors-xtd_prismhighlighterghsvs-update.xml</server></updateservers>
+
+	<changelogurl>https://raw.githubusercontent.com/GHSVS-de/upadateservers/master/plg_editors-xtd_prismhighlighterghsvs-changelog.xml</changelogurl>
+	
+	<infourl>https://updates.ghsvs.de/changelog.php?file=plg_editors-xtd_prismhighlighterghsvs</infourl>
+
+	<scriptfile>installerScript.php</scriptfile>
+	<minimumPhp>7.2.0</minimumPhp>
+	<!-- <maximumPhp>5.4.0</maximumPhp> -->
+	<minimumJoomla>3.9.0</minimumJoomla>
+	<!--<maximumJoomla>3.9.99999</maximumJoomla>-->
+	<allowDowngrades>1</allowDowngrades>
+
+	<files>
+		<filename plugin="prismhighlighterghsvs">prismhighlighterghsvs.php</filename>
+		<folder>language</folder>
+		<folder>fields</folder>
+		<filename>installerScript.php</filename>
+		<filename>LICENSE.txt</filename>
+	</files>
+
+	<media destination="plg_editors-xtd_prismhighlighterghsvs" folder="media">
+		<folder>html</folder>
+		<folder>js</folder>
+	</media>
+
+	<config>
+		<fields name="params" addfieldpath="plugins/editors-xtd/prismhighlighterghsvs/fields">
+		<fieldset name="advanced">
+
+			<field name="includeExcludeSpacer" type="note" close="true" class="alert"
+				label="Include or exclude selected languages/aliases"
+				description="Leave empty to display always all Prismjs language aliases in dropdownbox of the editor button."/>
+
+			<field name="includeExclude" type="list" default="0"
+				label="Include or exclude selected languages/aliases"
+			>
+			<option value="0">JNONE</option>
+				<option value="include">include</option>
+				<option value="exclude">exclude</option>
+			</field>
+
+			<field name="includeExcludeLang" type="prismhighlighterexcludelanguages"
+				multiple="true"
+				label="Exclude/Include languages/aliases"
+				showon="includeExclude:include,exclude"/>
+
+			<field name="defaultLang" type="prismhighlighterexcludelanguages" default=""
+				label="Select a default language/alias in dropdownbox of editor button">
+				<option value="">JNONE</option>
+			</field>
+		</fieldset>
+		</fields>
+	</config>
+
+</extension>

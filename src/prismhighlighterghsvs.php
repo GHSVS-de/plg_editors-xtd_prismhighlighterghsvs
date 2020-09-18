@@ -139,6 +139,7 @@ class plgButtonPrismhighlighterGhsvs extends CMSPlugin
 			'PLG_XTD_PRISMHIGHLIGHTERGHSVS_MINIFIED_JS' => JDEBUG ? '' : '.min',
 			'ADDJURIOPTIONS'
 				=> '<option value="0">' . Text::_('JNO') . '</option><option value="1">' . Text::_('JYES') . '</option>',
+				'[VERSION]' => '?' . time(),
 		);
 
 		foreach ($replaceWith as $replace => $with)

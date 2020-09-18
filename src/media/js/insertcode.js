@@ -170,7 +170,8 @@
 
 			tag = `<div class="codeContainer"${formData.ariaLabel}>`
 				+ tagOn
-				+ formData.codeInput
+				// Der JCE entfernt sonst u.U. manche Tags, wenn leer.
+				+ (formData.codeInput ? formData.codeInput : '&nbsp;')
 				+ tagOff
 				+ '</div><p>&nbsp;</p>';
 

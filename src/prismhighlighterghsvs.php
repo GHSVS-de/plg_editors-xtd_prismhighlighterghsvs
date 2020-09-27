@@ -57,11 +57,11 @@ class plgButtonPrismhighlighterGhsvs extends CMSPlugin
 		if (!$warning)
 		{
 			\JLoader::register(
-				'PrismHighlighterGhsvsHelper',
+				'PrismHighlighterGhsvs',
 				$helperFile
 			);
 
-			if (($brushes = \PrismHighlighterGhsvsHelper::getAliasLanguageMap()) === false)
+			if (($brushes = \PrismHighlighterGhsvs::getAliasLanguageMap()) === false)
 			{
 				$warning = 'PLG_XTD_PRISMHIGHLIGHTERGHSVS_BRUSHES_NOT_FOUND';
 			}
@@ -139,7 +139,7 @@ class plgButtonPrismhighlighterGhsvs extends CMSPlugin
 			'PLG_XTD_PRISMHIGHLIGHTERGHSVS_MINIFIED_JS' => JDEBUG ? '' : '.min',
 			'ADDJURIOPTIONS'
 				=> '<option value="0">' . Text::_('JNO') . '</option><option value="1">' . Text::_('JYES') . '</option>',
-				'[VERSION]' => '?' . time(),
+			'[VERSION]' => '?' . time(),
 		);
 
 		foreach ($replaceWith as $replace => $with)

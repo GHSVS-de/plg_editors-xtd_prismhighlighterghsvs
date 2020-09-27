@@ -48,15 +48,15 @@ class JFormFieldPrismhighlighterexcludelanguages extends JFormFieldList
 			return $warning;
 		}
 		\JLoader::register(
-			'PrismHighlighterGhsvsHelper',
+			'PrismHighlighterGhsvs',
 			$helperFile
 		);
 		
-		$brushes = \PrismHighlighterGhsvsHelper::getAliasLanguageMap();
+		$brushes = \PrismHighlighterGhsvs::getAliasLanguageMap();
 		
 		if (!$brushes)
 		{
-			$warning = 'Error: Empty languages array from method PrismHighlighterGhsvsHelper::getAliasLanguageMap().';
+			$warning = 'Error: Empty languages array from method PrismHighlighterGhsvs::getAliasLanguageMap().';
 			return $warning;
 		}
 		else

@@ -6,6 +6,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Object\CMSObject;
 use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\HTML\HTMLHelper;
 
 class plgButtonPrismhighlighterGhsvs extends CMSPlugin
 {
@@ -56,39 +57,49 @@ class plgButtonPrismhighlighterGhsvs extends CMSPlugin
 
 		if (!$warning)
 		{
-			\JLoader::register(
-				'PrismHighlighterGhsvs',
-				$helperFile
-			);
+			\JLoader::register('PrismHighlighterGhsvs', $helperFile);
 
+			// Can we load aliasLanguageMap.json and convert to array?
 			if (($brushes = \PrismHighlighterGhsvs::getAliasLanguageMap()) === false)
 			{
 				$warning = 'PLG_XTD_PRISMHIGHLIGHTERGHSVS_BRUSHES_NOT_FOUND';
 			}
 			else
 			{
-				$includeExcludeLang = array_flip($this->params->get('includeExcludeLang', []));
+				/* An array of prism languages that user has already selected for
+					inclusion or exclusion in plugin configuration. */
+				$includeExcludeLang = array_flip($this->params->get(
+					'includeExcludeLang', []));
+
+				// Include them or exclude them?
 				$includeExclude = $this->params->get('includeExclude', 'include');
+
+				// A single default language that shall be pre-selected in button popup.
 				$defaultLang = $this->params->get('defaultLang', '');
-				#echo ' 4654sd48sa7d98sD81s8d71dsa <pre>' . print_r($defaultLang, true) . '</pre>';#exit;
-				
+
+				/* Filter languages (brushes) that shall be displayed in editor button
+					popup.*/
 				foreach ($brushes as $alias => $infos)
 				{
 					if ($includeExcludeLang)
 					{
-						if ($includeExclude === 'include' && !isset($includeExcludeLang[$alias]))
+						if ($includeExclude === 'include'
+							&& !isset($includeExcludeLang[$alias]))
 						{
 							unset($brushes[$alias]);
 						}
-						elseif ($includeExclude === 'exclude' && isset($includeExcludeLang[$alias]))
+						elseif ($includeExclude === 'exclude'
+							&& isset($includeExcludeLang[$alias]))
 						{
 							unset($brushes[$alias]);
 						}
 					}
 				}
-				
+
+				// Sort by language name.
 				ksort($brushes);
-				
+
+				// Build select box for 'snippet language' in popup form.
 				foreach ($brushes as $alias => $infos)
 				{
 					$selected = '';
@@ -105,7 +116,8 @@ class plgButtonPrismhighlighterGhsvs extends CMSPlugin
 
 		$popupDir = 'media/plg_editors-xtd_prismhighlighterghsvs/html/';
 
-		$popupTmpl = file_get_contents(JPATH_SITE . '/' . $popupDir .  'insertcode_tmpl.html');
+		$popupTmpl = file_get_contents(JPATH_SITE . '/' . $popupDir
+			.  'insertcode_tmpl.html');
 
 		$replaceWith = array(
 			'PLG_XTD_PRISMHIGHLIGHTERGHSVS_ADD_JURI'
@@ -117,7 +129,8 @@ class plgButtonPrismhighlighterGhsvs extends CMSPlugin
 			'PLG_XTD_PRISMHIGHLIGHTERGHSVS_SELECTTAG'
 				=> Text::_('PLG_XTD_PRISMHIGHLIGHTERGHSVS_SELECTTAG'),
 			'WARNING' =>
-				$warning ? '<p><strong style="color:red">' . Text::_($warning) . '</strong></p>' : '',
+				$warning ? '<p><strong style="color:red">' . Text::_($warning)
+					. '</strong></p>' : '',
 			'PLG_XTD_PRISMHIGHLIGHTERGHSVS_SELECTBRUSH'
 				=> Text::_('PLG_XTD_PRISMHIGHLIGHTERGHSVS_SELECTBRUSH'),
 			'BRUSHOPTIONS'
@@ -127,7 +140,9 @@ class plgButtonPrismhighlighterGhsvs extends CMSPlugin
 			'CSS_CLASSES'
 				=> $this->params->get('cssClasses', 'line-numbers'),
 			'TAGOPTIONS'
-				=> '<option value="pre-code">&lt;pre&gt;&lt;code&gt;</option><option value="code">&lt;code&gt;</option><option value="pre">&lt;pre&gt;</option>',
+				=> '<option value="pre-code">&lt;pre&gt;&lt;code&gt;</option>'
+					. '<option value="code">&lt;code&gt;</option>'
+					. '<option value="pre">&lt;pre&gt;</option>',
 			'PLG_XTD_PRISMHIGHLIGHTERGHSVS_CODEINPUT'
 				=> Text::_('PLG_XTD_PRISMHIGHLIGHTERGHSVS_CODEINPUT'),
 			'PLG_XTD_PRISMHIGHLIGHTERGHSVS_TEXTLINES'
@@ -138,10 +153,12 @@ class plgButtonPrismhighlighterGhsvs extends CMSPlugin
 				=> Text::_('PLG_XTD_PRISMHIGHLIGHTERGHSVS_INSERTCODE'),
 			'PLG_XTD_PRISMHIGHLIGHTERGHSVS_MINIFIED_JS' => JDEBUG ? '' : '.min',
 			'ADDJURIOPTIONS'
-				=> '<option value="0">' . Text::_('JNO') . '</option><option value="1">' . Text::_('JYES') . '</option>',
+				=> '<option value="0">' . Text::_('JNO') . '</option>'
+					. '<option value="1">' . Text::_('JYES') . '</option>',
 			'[VERSION]' => '?' . time(),
 		);
 
+		// Fill popup form template.
 		foreach ($replaceWith as $replace => $with)
 		{
 			$popupTmpl = str_replace($replace, $with, $popupTmpl);
@@ -152,12 +169,12 @@ class plgButtonPrismhighlighterGhsvs extends CMSPlugin
 
 		file_put_contents(JPATH_SITE . '/' . $popupFile, $popupTmpl);
 
-		JHtml::_('behavior.core');
+		HTMLHelper::_('behavior.core');
 		Factory::getDocument()->addScriptOptions('xtd-prismhighlighterghsvs',
-			array(
+			[
 				'editor' => $editorname,
 				'JUri' => Uri::root()
-			)
+			]
 		);
 
 		$root = '';
@@ -168,6 +185,7 @@ class plgButtonPrismhighlighterGhsvs extends CMSPlugin
 			$root = '../';
 		}
 
+		// Build editor button.
 		$button = new CMSObject;
 		$button->set('class', 'btn');
 		$button->modal = true;

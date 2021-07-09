@@ -7,16 +7,16 @@
 	<license>GNU General Public License version 3 or later; see LICENSE.txt file</license>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.ghsvs.de</authorUrl>
-	<version>2020.09.27</version>
+	<version>2021.07.07</version>
 	<description>PLG_EDITORS-XTD_PRISMHIGHLIGHTERGHSVS_XML_DESC</description>
 	<versionHistory>
 	   https://updates.ghsvs.de/changelog.php?file=plg_editors-xtd_prismhighlighterghsvs
 	</versionHistory>
-	
+
 	<updateservers><server type="extension" priority="1" name="PLG_EDITORS-XTD_PRISMHIGHLIGHTERGHSVS">https://raw.githubusercontent.com/GHSVS-de/upadateservers/master/plg_editors-xtd_prismhighlighterghsvs-update.xml</server></updateservers>
 
 	<changelogurl>https://raw.githubusercontent.com/GHSVS-de/upadateservers/master/plg_editors-xtd_prismhighlighterghsvs-changelog.xml</changelogurl>
-	
+
 	<infourl>https://updates.ghsvs.de/changelog.php?file=plg_editors-xtd_prismhighlighterghsvs</infourl>
 
 	<scriptfile>installerScript.php</scriptfile>

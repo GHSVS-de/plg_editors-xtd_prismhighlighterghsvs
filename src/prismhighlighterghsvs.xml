@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.9" type="plugin" group="editors-xtd" method="upgrade">
+<extension type="plugin" group="editors-xtd" method="upgrade">
 	<name>PLG_EDITORS-XTD_PRISMHIGHLIGHTERGHSVS</name>
 	<author>G@HService Berlin Neukölln, Volkmar Volli Schlothauer</author>
 	<creationDate>2020-09-15</creationDate>
@@ -7,7 +7,7 @@
 	<license>GNU General Public License version 3 or later; see LICENSE.txt file</license>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.ghsvs.de</authorUrl>
-	<version>2021.07.07</version>
+	<version>2021.11.04</version>
 	<description>PLG_EDITORS-XTD_PRISMHIGHLIGHTERGHSVS_XML_DESC</description>
 	<versionHistory>
 	   https://updates.ghsvs.de/changelog.php?file=plg_editors-xtd_prismhighlighterghsvs
@@ -20,10 +20,10 @@
 	<infourl>https://updates.ghsvs.de/changelog.php?file=plg_editors-xtd_prismhighlighterghsvs</infourl>
 
 	<scriptfile>installerScript.php</scriptfile>
-	<minimumPhp>7.2.0</minimumPhp>
-	<!-- <maximumPhp>5.4.0</maximumPhp> -->
+	<minimumPhp>7.4.0</minimumPhp>
+	<maximumPhp>8.9999.9999</maximumPhp>
 	<minimumJoomla>3.9.0</minimumJoomla>
-	<!--<maximumJoomla>3.9.99999</maximumJoomla>-->
+	<maximumJoomla>4.99999.9999</maximumJoomla>
 	<allowDowngrades>1</allowDowngrades>
 
 	<files>

@@ -28,7 +28,9 @@
 				return false;
 			}
 
-			var editor = window.parent.Joomla.getOptions('xtd-prismhighlighterghsvs').editor;
+			const options = window.parent.Joomla.getOptions('xtd-prismhighlighterghsvs');
+
+			let editor = options.editor;
 
 			var formData = {};
 
@@ -47,6 +49,15 @@
 			formData.codeInput = formData.codeInput.replace(/\'/g, '&#039;');
 			formData.codeInput = formData.codeInput.replace(/</g, '&lt;');
 			formData.codeInput = formData.codeInput.replace(/>/g, '&gt;');
+
+			if (options.shortcodesWarning && /\{.+\}/gi.test(formData.codeInput))
+			{
+				alert(options.shortcodesWarningWarning);
+			}
+
+			//formData.codeInput = formData.codeInput.replace(/\{/g, '{ ');
+			//formData.codeInput = formData.codeInput.replace(/\{/g, '{&#65279;');
+			// formData.codeInput = formData.codeInput.replace(/\}/g, '&#10101;');
 
 			formData.ariaLabel = formData.ariaLabel.replace(/&/g, '&amp;');
 			formData.ariaLabel = formData.ariaLabel.replace(/\"/g, '&quot;');

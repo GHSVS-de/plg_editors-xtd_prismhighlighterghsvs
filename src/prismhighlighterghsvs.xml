@@ -64,6 +64,18 @@
 				label="Select a default language/alias in dropdownbox of editor button">
 				<option value="">JNONE</option>
 			</field>
+
+			<field name="shortcodesWarningSpacer" type="note"
+				class="alert alert-info"
+				label="PLG_XTD_PRISMHIGHLIGHTERGHSVS_SHORTCODESWARNING"
+				description="PLG_XTD_PRISMHIGHLIGHTERGHSVS_SHORTCODESWARNING_DESC"/>
+
+			<field name="shortcodesWarning" type="list" default="1" filter="integer"
+				label="PLG_XTD_PRISMHIGHLIGHTERGHSVS_SHORTCODESWARNING">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
 		</fieldset>
 		</fields>
 	</config>

@@ -173,7 +173,10 @@ class plgButtonPrismhighlighterGhsvs extends CMSPlugin
 		Factory::getDocument()->addScriptOptions('xtd-prismhighlighterghsvs',
 			[
 				'editor' => $editorname,
-				'JUri' => Uri::root()
+				'JUri' => Uri::root(),
+				'shortcodesWarning' => (int) $this->params->get('shortcodesWarning', 1),
+				'shortcodesWarningWarning'
+					=> Text::_('PLG_XTD_PRISMHIGHLIGHTERGHSVS_SHORTCODESWARNING_WARNING'),
 			]
 		);
 

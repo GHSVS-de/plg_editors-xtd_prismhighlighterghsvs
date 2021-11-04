@@ -1,46 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="plugin" group="editors-xtd" method="upgrade">
-	<name>PLG_EDITORS-XTD_PRISMHIGHLIGHTERGHSVS</name>
-	<author>G@HService Berlin Neukölln, Volkmar Volli Schlothauer</author>
-	<creationDate>2020-09-15</creationDate>
-	<copyright>(C) 2020, G@HService Berlin Neukölln, Volkmar Volli Schlothauer (ghsvs.de). All rights reserved.</copyright>
-	<license>GNU General Public License version 3 or later; see LICENSE.txt file</license>
-	<authorEmail></authorEmail>
-	<authorUrl>https://www.ghsvs.de</authorUrl>
-	<version>2021.11.04</version>
-	<description>PLG_EDITORS-XTD_PRISMHIGHLIGHTERGHSVS_XML_DESC</description>
-	<versionHistory>
-	   https://updates.ghsvs.de/changelog.php?file=plg_editors-xtd_prismhighlighterghsvs
-	</versionHistory>
+<extension type="{{type}}" client="{{client}}" group="{{folder}}" method="upgrade">
+	<name>{{nameUpper}}</name>
+	<author>{{authorName}}</author>
+	<creationDate>{{creationDate}}</creationDate>
+	<copyright>{{copyright}}</copyright>
+	<license>{{licenseLong}}</license>
+	<authorUrl>{{authorUrl}}</authorUrl>
+	<version>{{version}}</version>
+	<description>{{nameUpper}}_XML_DESC</description>
 
-	<updateservers><server type="extension" priority="1" name="PLG_EDITORS-XTD_PRISMHIGHLIGHTERGHSVS">https://raw.githubusercontent.com/GHSVS-de/upadateservers/master/plg_editors-xtd_prismhighlighterghsvs-update.xml</server></updateservers>
+	<updateservers>
+		<server type="extension" priority="1" name="{{nameUpper}}">https://raw.githubusercontent.com/GHSVS-de/upadateservers/master/{{name}}-update.xml</server>
+	</updateservers>
 
-	<changelogurl>https://raw.githubusercontent.com/GHSVS-de/upadateservers/master/plg_editors-xtd_prismhighlighterghsvs-changelog.xml</changelogurl>
+	<changelogurl>https://raw.githubusercontent.com/GHSVS-de/upadateservers/master/{{name}}-changelog.xml</changelogurl>
 
-	<infourl>https://updates.ghsvs.de/changelog.php?file=plg_editors-xtd_prismhighlighterghsvs</infourl>
+	<infourl>https://updates.ghsvs.de/changelog.php?file={{name}}</infourl>
 
 	<scriptfile>installerScript.php</scriptfile>
-	<minimumPhp>7.4.0</minimumPhp>
-	<maximumPhp>8.9999.9999</maximumPhp>
-	<minimumJoomla>3.9.0</minimumJoomla>
-	<maximumJoomla>4.99999.9999</maximumJoomla>
-	<allowDowngrades>1</allowDowngrades>
+	<minimumPhp>{{minimumPhp}}</minimumPhp>
+	<maximumPhp>{{maximumPhp}}</maximumPhp>
+	<minimumJoomla>{{minimumJoomla}}</minimumJoomla>
+	<maximumJoomla>{{maximumJoomla}}</maximumJoomla>
+	<allowDowngrades>{{allowDowngrades}}</allowDowngrades>
 
 	<files>
-		<filename plugin="prismhighlighterghsvs">prismhighlighterghsvs.php</filename>
+		<filename plugin="{{filename}}">{{filename}}.php</filename>
 		<folder>language</folder>
-		<folder>fields</folder>
+		<folder>src</folder>
 		<filename>installerScript.php</filename>
 		<filename>LICENSE.txt</filename>
 	</files>
 
-	<media destination="plg_editors-xtd_prismhighlighterghsvs" folder="media">
+	<media destination="{{name}}" folder="media">
 		<folder>html</folder>
 		<folder>js</folder>
 	</media>
 
 	<config>
-		<fields name="params" addfieldpath="plugins/editors-xtd/prismhighlighterghsvs/fields">
+		<fields name="params" addfieldpath="plugins/{{folder}}/{{filename}}/src/Field">
 		<fieldset name="advanced">
 
 			<field name="includeExcludeSpacer" type="note" close="true" class="alert"

@@ -12,7 +12,8 @@
 		"targetplatform": ".*"
 	},
 	"releaseTxt": {
-		"title": "Joomla editors-xtd plugin PrismHighlighterGhsvs"
+		"title": "Joomla editors-xtd plugin PrismHighlighterGhsvs",
+		"requires": ["plg_content_prismhighlighterghsvs"]
 	},
 	"changelog": {
 		"projecturl": "https://github.com/GHSVS-de/plg_editors-xtd_prismhighlighterghsvs",

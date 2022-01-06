@@ -56,7 +56,8 @@
 			<field name="includeExcludeLang" type="prismhighlighterexcludelanguages"
 				multiple="true"
 				label="Exclude/Include languages/aliases"
-				showon="includeExclude:include,exclude"/>
+				showon="includeExclude:include,exclude"
+				layout="joomla.form.field.list-fancy-select"/>
 
 			<field name="defaultLang" type="prismhighlighterexcludelanguages" default=""
 				label="Select a default language/alias in dropdownbox of editor button">

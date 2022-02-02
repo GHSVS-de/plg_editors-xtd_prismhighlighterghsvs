@@ -109,7 +109,7 @@
 			if (formData.textLines)
 			{
 				attributes.push(`data-line="${formData.textLines}"`);
-				
+
 				// ToDo: Old script needed?
 				/*if (formData.firstLine)
 				{
@@ -135,9 +135,10 @@
 				}*/
 			}
 
+			// Line numbering starts with number "firstLine".
 			if (formData.firstLine)
 			{
-				attributes.push(`data-line-offset="${formData.firstLine}"`);
+				attributes.push(`data-start="${formData.firstLine}"`);
 			}
 
 			if (formData.ariaLabel)
@@ -153,14 +154,14 @@
 			{
 				attributes.push(`class="${classes.join(' ')}"`);
 			}
-			
+
 			if (attributes.length)
 			{
 				attributes = ` ${attributes.join(' ')}`;
 			}
 			else
 			{
-				attributes = ""; 
+				attributes = "";
 			}
 
 			if (formData.selectTag === "pre-code")
@@ -171,12 +172,12 @@
 			else if (formData.selectTag === "code")
 			{
 				tagOn = `<code${attributes}>`;
-				tagOff = '</code>';				
+				tagOff = '</code>';
 			}
 			else if (formData.selectTag === "pre")
 			{
 				tagOn = `<pre${attributes}>`;
-				tagOff = '</pre>';						
+				tagOff = '</pre>';
 			}
 
 			tag = `<div class="codeContainer"${formData.ariaLabel}>`

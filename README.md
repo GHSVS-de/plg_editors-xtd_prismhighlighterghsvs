@@ -1,4 +1,4 @@
-# plg_editors-xtd_prismhighlighterghsvs
+# PLG_EDITORS-XTD_PRISMHIGHLIGHTERGHSVS
 
 -----------------------------------------------------
 

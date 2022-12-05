@@ -22,11 +22,11 @@ class plgButtonPrismhighlighterGhsvs extends CMSPlugin
 
 		$user = Factory::getUser();
 
-		$extension = $this->app->input->get('option');
+		$extension = $this->app->getInput()->get('option');
 
 		if ($extension === 'com_categories')
 		{
-			$parts = explode('.', $this->app->input->get('extension', 'com_content'));
+			$parts = explode('.', $this->app->getInput()->get('extension', 'com_content'));
 			$extension = $parts[0];
 		}
 

@@ -194,7 +194,9 @@ class plgButtonPrismhighlighterGhsvs extends CMSPlugin
 		$button->modal = true;
 		$button->link = $root . $popupFile . '?editor=' . urlencode($editorname);
 		$button->set('text', Text::_('PLG_XTD_PRISMHIGHLIGHTERGHSVS_BUTTON'));
-		$button->name = 'file-add'; // icon class without 'icon-'
+		// BC break in Joomla 4.2.7. Use unique name.
+		// $button->name = 'file-add'; // icon class without 'icon-'
+		$button->name = $this->_type . '_' . $this->_name;
 		$button->options = "{handler: 'iframe', size: {x: 800, y: 550}}";
 		return $button;
 	}

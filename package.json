@@ -2,14 +2,17 @@
 	"name": "plg_editors-xtd_prismhighlighterghsvs",
 	"nameReal": "plg_editors-xtd_prismhighlighterghsvs",
 	"filename": "prismhighlighterghsvs",
-	"version": "2021.11.05",
-	"versionCompare": "2021.07.07",
+	"version": "2023.02.09",
+	"versionCompare": "2021.11.05",
 	"update": {
 		"type": "plugin",
 		"folder": "editors-xtd",
 		"client": "site",
 		"tag": "stable",
-		"targetplatform": ".*"
+		"targetplatform": [
+			"3.*",
+			"4.*"
+		]
 	},
 	"releaseTxt": {
 		"title": "Joomla editors-xtd plugin PrismHighlighterGhsvs",
@@ -22,10 +25,10 @@
 		"docsDE": "",
 		"docsEN": "",
 		"lastTests": [
-			"PHP 7.4",
 			"PHP 8.0",
+			"PHP 8.1",
 			"Joomla 3.10",
-			"Joomla 4.0"
+			"Joomla 4.2"
 		]
 	},
 	"minimumPhp": "7.4.0",
@@ -64,9 +67,9 @@
 		"url": "https://github.com/GHSVS-de/plg_editors-xtd_prismhighlighterghsvs.git"
 	},
 	"scripts": {
-		"g-build": "node build.js",
-		"g-npm-update-check": "ncu",
-		"g-ncu-override-json": "ncu -u"
+		"build": "node build.js",
+		"updateCheck": "npm outdated",
+		"update": "npm update --save-dev"
 	},
 	"dependencies": {
 		"npm-check-updates": "^12.0.0"

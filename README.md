@@ -7,9 +7,9 @@
 - `cd /mnt/z/git-kram/plg_editors-xtd_prismhighlighterghsvs`
 
 ## node/npm updates/installation
-- `npm run g-npm-update-check` or (faster) `ncu`
-- `npm run g-ncu-override-json` (if needed) or (faster) `ncu -u`
-- `npm install` (if needed)
+- `npm run updateCheck`
+- `npm run update`
+- or `npm install` (if needed)
 
 ## Build installable ZIP package
 - `node build.js`

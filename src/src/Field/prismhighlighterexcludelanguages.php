@@ -1,7 +1,7 @@
 <?php
 #namespace Joomla\CMS\Form\Field;
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Form\FormHelper;
@@ -51,9 +51,9 @@ class JFormFieldPrismhighlighterexcludelanguages extends JFormFieldList
 			'PrismHighlighterGhsvs',
 			$helperFile
 		);
-		
+
 		$brushes = \PrismHighlighterGhsvs::getAliasLanguageMap();
-		
+
 		if (!$brushes)
 		{
 			$warning = 'Error: Empty languages array from method PrismHighlighterGhsvs::getAliasLanguageMap().';
@@ -68,10 +68,10 @@ class JFormFieldPrismhighlighterexcludelanguages extends JFormFieldList
 			if (!isset(static::$options[$hash]))
 			{
 				$options = array();
-				
+
 				/*if (isset($this->element['addJNONE']) && (string) $this->element['addJNONE'] === 'true')
 				{
-					
+
 					// I really don't know why parent::getOptions() returns nothing
 					// when <option value="">JNONE</option> in XML.
 					// Answer: It was the f'ing md5 $hash calculation that returned for all fields
@@ -85,7 +85,7 @@ class JFormFieldPrismhighlighterexcludelanguages extends JFormFieldList
 				foreach ($brushes as $value => $name)
 				{
 					$name = $name['aliasTitle'];
-					
+
 					$do = new \stdClass;
 					$do->value = $value;
 					$do->text = $name;
